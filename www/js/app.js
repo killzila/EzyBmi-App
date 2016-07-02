@@ -22,3 +22,35 @@ angular.module('starter', ['ionic'])
     }
   });
 })
+
+
+
+
+
+.controller('bmiController', ['$scope', function($scope){
+
+  $scope.name = "";
+  $scope.height = 0 ;
+  $scope.weight = 0;
+  $scope.result= "";
+
+  $scope.calBMI = function(pname,pheight,pweight){
+    $scope.heightM = pheight / 100;
+    $scope.cal = pweight / ( $scope.heightM * $scope.heightM ) ;
+    $scope.result =  pname  + " :" + $scope.cal ;
+      if ($scope.cal  < 18.5 ) {
+          $scope.result =  pname  + " :" + $scope.cal  + " : น้ำหนักต่ำกว่าเกณฑ์" ; 
+      } else if ($scope.cal  >= 18.5   && $scope.cal  <= 23.4 ) {
+        $scope.result =  pname  + " :" + $scope.cal  + " : น้ำหนักอยู่ในเกณฑ์ปกติ" ; 
+      } else if ($scope.cal  >= 23.5   && $scope.cal  <= 28.4 ) {
+        $scope.result =  pname  + " :" + $scope.cal  + " : น้ำหนักเกินแล้ว" ; 
+      } else if ($scope.cal  >= 28.5   && $scope.cal  <= 34.9 ) {
+        $scope.result =  pname  + " :" + $scope.cal  + " : โรคอ้วนขั้นที่ 1" ; 
+      } else if ($scope.cal  >= 35.0   && $scope.cal  <= 39.9 ) {
+        $scope.result =  pname  + " :" + $scope.cal  + " : โรคอ้วนขั้นที่ 2" ; 
+      } else  {
+        $scope.result =  pname  + " :" + $scope.cal  + " : โรคอ้วนขั้นสูงสุด" ; 
+      }
+  }
+
+}])

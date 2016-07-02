@@ -23,7 +23,7 @@
   </head>
   <body ng-app="starter">
 
-    <ion-pane>
+    <ion-pane ng-controller="bmiController" >
       <ion-header-bar class="bar-royal">
         <h1 class="title">Ezy BMI App</h1>
       </ion-header-bar>
@@ -31,23 +31,23 @@
       <div class="list">
         <label class="item item-input item-floating-label">
         <span class="input-label">Name</span>
-          <input type="text" placeholder="Your Name">
+          <input type="text" placeholder="Your Name" ng-model = "name">
         </label>
         <label class="item item-input item-floating-label">
          <span class="input-label">Height</span>
-          <input type="number" placeholder="Your Height">
+          <input type="number" placeholder="Your Height" ng-model = "height">
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">Weight</span>
-          <input type="number" placeholder="Your Weight">
+          <input type="number" placeholder="Your Weight" ng-model = "weight">
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">Result</span>
-          <input type="text" placeholder="">
+          <input type="text" placeholder="" ng-model = "result"  >
         </label>
 
 </div>
-          <button class="button button-block button-royal">
+          <button class="button button-block button-royal" ng-click = "calBMI(name,height,weight)">
             Calculate
           </button>
       </ion-content>
